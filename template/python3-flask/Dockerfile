@@ -12,6 +12,7 @@ WORKDIR /root/
 COPY requirements.txt   .
 RUN pip install -r requirements.txt
 COPY index.py           .
+COPY utils.py           .
 
 RUN mkdir -p function
 RUN touch ./function/__init__.py

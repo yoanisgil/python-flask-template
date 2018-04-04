@@ -1,7 +1,7 @@
-def handle(req):
-    """handle a request to the function
-    Args:
-        req (str): request body
-    """
+from utils import FunctionContext, FunctionEvent
 
-    return req
+
+def handle(event: FunctionEvent, context: FunctionContext) -> None:
+    result = {"message": "message accepted", "input_headers": event.headers}
+
+    context.status(202).headers({'X-Process-By': 'my-function'}).succeed(result)
