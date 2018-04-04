@@ -1,6 +1,7 @@
 class FunctionEvent(object):
     def __init__(self, request):
-        self.headers = request.headers
+        self.headers = {key: value for key, value in request.headers}
+
         self.method = request.method
         self.body = request.get_data()
         self.query = request.args
